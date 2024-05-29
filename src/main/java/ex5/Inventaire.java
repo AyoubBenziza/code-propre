@@ -3,34 +3,65 @@ package ex5;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Représente un inventaire d'objets répartis dans des caisses de différentes tailles en fonction de leur poids en kg (petits, moyens, grands)
+ *
+ * @author ayoubbz
+ *
+ */
 public class Inventaire {
 
-	private List<Caisse> caisses;
+	/** Liste des caisses */
+	private final List<Caisse> caisses;
 
+	/**
+	 * Constructeur
+	 *
+	 */
 	public Inventaire() {
 		caisses = new ArrayList<>();
-		caisses.add(new Caisse("Petits objets"));
-		caisses.add(new Caisse("Moyens objets"));
-		caisses.add(new Caisse("Grands objets"));
+		caisses.add(new Caisse("Petits objets", 0, 5));
+		caisses.add(new Caisse("Moyens objets", 5, 20));
+		caisses.add(new Caisse("Grands objets", 20, Integer.MAX_VALUE));
 	}
 
+	/**
+	 * Ajoute un item à l'inventaire : cette méthode choisit une caisse adaptée en
+	 * fonction du poids de l'objet
+	 *
+	 * @param item item à ajouter
+	 */
 	public void addItem(Item item) {
 
-		//TODO Faites évoluer ce code (idée: c'est le caisse qui doit "savoir" si elle peut accepter un objet ou non)
-		if (item.getPoids() < 5) {
-			caisses.get(0).getItems().add(item);
-		}
-		if (item.getPoids() >= 5 && item.getPoids() <= 20) {
-			caisses.get(1).getItems().add(item);
-		}
-		if (item.getPoids() >= 20) {
-			caisses.get(2).getItems().add(item);
+		for (Caisse caisse : caisses) {
+			if (caisse.accepte(item)) {
+				caisse.getItems().add(item);
+			}
 		}
 	}
 
+	@Override
+	public String toString() {
+
+		StringBuilder builder = new StringBuilder();
+		builder.append("Inventaire: ").append(taille()).append(" objet(s).");
+		for (Caisse c : caisses) {
+			builder.append("\n\t").append(c);
+		}
+		return builder.toString();
+	}
+
+	/**
+	 * Retourne le nombre d'objets dans l'inventaire
+	 *
+	 * @return int
+	 */
 	public int taille() {
-		
-		//TODO faites évoluer ce code.
-		return caisses.get(0).getItems().size() + caisses.get(1).getItems().size() + caisses.get(2).getItems().size();
+
+		int somme = 0;
+		for (Caisse caisse : caisses) {
+			somme += caisse.taille();
+		}
+		return somme;
 	}
 }

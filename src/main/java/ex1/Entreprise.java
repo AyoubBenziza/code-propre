@@ -5,37 +5,47 @@ import java.util.Date;
 /**
  * Classe représentant une entreprise
  *
- * @field siret : int
- * @field nom : String
- * @field adresse : String
- * @field dateCreation : Date
  * @author ayoubbz
  */
 public class Entreprise {
-
+	/** Numéro siret de l'entreprise */
 	private int siret;
+	/** Nom de l'entreprise */
 	private String nom;
+	/** Adresse de l'entreprise */
 	private String adresse;
+	/** Date de création de l'entreprise */
 	private Date dateCreation;
 
+	/**
+	 * Constructeur de la classe Entreprise
+	 * @param siret : siret de l'entreprise
+	 * @param nom : nom de l'entreprise
+	 * @param adresse : adresse de l'entreprise
+	 * @param dateCreation : date de création de l'entreprise
+	 */
 	public Entreprise(int siret, String nom, String adresse, Date dateCreation){
 		this.siret = siret;
 		this.nom = nom;
 		this.adresse = adresse;
 		this.dateCreation = dateCreation;
 	}
-	
-	private static final int capitalMax = 3000000;
-	
-	private void afficherStatut(){
-		
-	}
 
-	/*
-	* Getters and Setters
-	 */
+	private static final int capitalMax = 3000000;
 
 	/**
+	 * Méthode permettant d'afficher les informations de l'entreprise
+	 */
+	private void afficherStatut(){
+		System.out.println("Siret : "+siret);
+		System.out.println("Nom : "+nom);
+		System.out.println("Adresse : "+adresse);
+		System.out.println("Date de création : "+dateCreation);
+	}
+
+	/**
+	 * Getter
+	 *
 	 * @return le siret de l'entreprise
 	 */
 	public int getSiret(){
@@ -43,6 +53,8 @@ public class Entreprise {
 	}
 
 	/**
+	 * Getter
+	 *
 	 * @return le nom de l'entreprise
 	 */
 	public String getNom(){
@@ -50,6 +62,8 @@ public class Entreprise {
 	}
 
 	/**
+	 * Getter
+	 *
 	 * @return l'adresse de l'entreprise
 	 */
 	public String getAdresse(){
@@ -57,12 +71,16 @@ public class Entreprise {
 	}
 
 	/**
+	 * Getter
+	 *
 	 * @return la date de création de l'entreprise
 	 */
 	public Date getDateCreation(){
 		return dateCreation;
 	}
 	/**
+	 * Setter
+	 *
 	 * @param siret int
 	 * Modifie le siret de l'entreprise
      */
@@ -71,6 +89,8 @@ public class Entreprise {
 	}
 
 	/**
+	 * Setter
+	 *
 	 * @param nom String
 	 * Modifie le nom de l'entreprise
 	 */
@@ -79,6 +99,8 @@ public class Entreprise {
 	}
 
 	/**
+	 * Setter
+	 *
 	 * @param adresse String
 	 * Modifie l'adresse de l'entreprise
 	 */
@@ -87,6 +109,8 @@ public class Entreprise {
 	}
 
 	/**
+	 * Setter
+	 *
 	 * @param dateCreation Date
 	 * Modifie la date de création de l'entreprise
 	 */

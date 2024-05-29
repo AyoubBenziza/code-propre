@@ -2,7 +2,7 @@ package ex1;
 
 // Javadoc
 /**
- * Classe utilitaire d'opérations mathématiques
+ * Classe utilitaire d'opérations mathématiques sur les nombres entiers
  *
  * @author ayoubbz
  */
